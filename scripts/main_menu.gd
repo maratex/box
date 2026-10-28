@@ -5,7 +5,7 @@ extends Control
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
-	var bg_tex := Game.load_texture("faceoff.png")
+	var bg_tex := Game.load_texture(["faceoff.png", "opponent_base.jpg"])
 	if bg_tex:
 		var tr := TextureRect.new()
 		tr.texture = bg_tex
@@ -54,7 +54,7 @@ func _ready() -> void:
 	box.add_child(play)
 
 	var help := Label.new()
-	help.text = "Слева: шаги и уклон.  Справа: джеб, кросс, хук и блок (держать).\nКлавиатура: A/D, J/K/L, пробел — блок, Shift — уклон."
+	help.text = "Слева: уклоны и блок (держать).  Справа: удары левой и правой.\nБей, когда соперник замахивается или открылся после удара.\nКлавиатура: A/D — уклоны, J/K — удары, пробел — блок."
 	help.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	help.add_theme_font_size_override("font_size", 18)
 	help.modulate = Color(1, 1, 1, 0.7)

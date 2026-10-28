@@ -1,8 +1,8 @@
 extends Control
 ## Шкалы здоровья и выносливости, раунд и таймер.
 
-var player: Boxer
-var enemy: Boxer
+var player: Fighter
+var enemy: Fighter
 var round_num := 1
 var rounds_total := 3
 var time_left := 60.0
@@ -48,7 +48,7 @@ func _draw() -> void:
 	_draw_centered(font, timer_text, Vector2(w * 0.5, 70), 40, Color.WHITE if time_left > 10.0 else Color(1, 0.45, 0.35))
 
 
-func _draw_side(b: Boxer, tex: Texture2D, anchor: Vector2, bar_w: float, portrait: float, mirrored: bool) -> void:
+func _draw_side(b: Fighter, tex: Texture2D, anchor: Vector2, bar_w: float, portrait: float, mirrored: bool) -> void:
 	var font := ThemeDB.fallback_font
 	var dir := -1.0 if mirrored else 1.0
 	var p_rect := Rect2(anchor.x - (portrait if mirrored else 0.0), anchor.y, portrait, portrait)
@@ -65,9 +65,9 @@ func _draw_side(b: Boxer, tex: Texture2D, anchor: Vector2, bar_w: float, portrai
 	var hp_rect := Rect2(bar_x - (bar_w if mirrored else 0.0), anchor.y + 4, bar_w, 26)
 	var st_rect := Rect2(hp_rect.position.x, hp_rect.end.y + 6, bar_w, 10)
 
-	var hp_k := b.health / Boxer.MAX_HEALTH
-	var shown_k: float = _shown_health.get(b, b.health) / Boxer.MAX_HEALTH
-	var st_k := b.stamina / Boxer.MAX_STAMINA
+	var hp_k := b.health / Fighter.MAX_HEALTH
+	var shown_k: float = _shown_health.get(b, b.health) / Fighter.MAX_HEALTH
+	var st_k := b.stamina / Fighter.MAX_STAMINA
 	var hp_col := Color(0.9, 0.2, 0.15).lerp(Color(0.95, 0.8, 0.2), hp_k)
 
 	draw_rect(hp_rect.grow(2), Color(0, 0, 0, 0.7))
