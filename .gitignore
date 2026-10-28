@@ -1,0 +1,17 @@
+# Служебные файлы Godot
+.godot/
+/android/
+*.tmp
+
+# Сборки
+build/
+*.apk
+*.aab
+*.idsig
+export_credentials.cfg
+
+# Фото и видео лежат на Google Диске — в репозиторий не кладём
+assets/media/photos/*
+assets/media/video/*
+!assets/media/photos/.gitkeep
+!assets/media/video/.gitkeep
